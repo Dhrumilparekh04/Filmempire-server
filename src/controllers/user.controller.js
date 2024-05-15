@@ -17,13 +17,11 @@ const signup = async (req, res) => {
     user.setPassword(password);
 
     await user.save();
-
     const token = jsonwebtoken.sign(
       { data: user.id },
       process.env.TOKEN_SECRET,
       { expiresIn: "24h" }
     );
-
     responseHandler.created(res, {
       token,
       ...user._doc,
