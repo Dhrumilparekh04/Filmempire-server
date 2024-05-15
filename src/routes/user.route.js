@@ -68,7 +68,7 @@ router.put(
 
 router.get(
   "/info",
-  tokenMiddleware.auth,
+  // tokenMiddleware.auth,
   userController.getInfo
 );
 
